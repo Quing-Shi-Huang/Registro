@@ -1,0 +1,159 @@
+/* Reseteo de márgenes y padding para asegurar una apariencia uniforme en todos los navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Establecemos una tipografía base para todo el sitio */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #20cbe9;
+    position: relative;
+}
+
+/* Estilos del contenedor principal */
+.container {
+    position: relative;
+    z-index: 2;
+    width: 200%; /* Reducido para hacer el contenedor más pequeño */
+    max-width: 550px; /* Máximo tamaño */
+    padding: 40px;
+    background-color: #fafa21;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Títulos */
+h1 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Formularios */
+form {
+    width: 100%;
+}
+
+form div {
+    margin-bottom: 12px;
+}
+
+/* Etiquetas */
+label {
+    font-size: 0.85rem; /* Reducido ligeramente */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Campos de entrada (input y textarea) */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px; /* Tamaño reducido */
+    margin-top: 4px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #40b2eb;
+    outline: none;
+}
+
+/* Estilo de los botones */
+button {
+    padding: 8px 15px;
+    font-size: 13px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px 0;
+}
+
+button[type="submit"] {
+    background-color: #40b2eb;
+    color: white;
+}
+
+button[type="button"] {
+    background-color: #007bff;
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Alineación y espaciado de los botones */
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+/* Estilos para dispositivos pequeños */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 7px 12px;
+        font-size: 12px;
+    }
+
+    input, textarea {
+        font-size: 12px;
+    }
+}
+
+/* Estilos para dispositivos móviles (pantallas menores de 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.1rem;
+    }
+
+    input, textarea {
+        font-size: 11px;
+        padding: 8px;
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

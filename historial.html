@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Pagos de Matrícula</title>
+    <link rel="stylesheet" href="historial.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Historial de Pagos de Matrícula</h1>
+
+    <div class="tabla">
+        <table id="tabla-historial">
+            <thead>
+                <tr>
+                    <th>Recibo</th>
+                    <th>Grado</th>
+                    <th>Pensión</th>
+                    <th>Estudiante</th>
+                    <th>Fecha</th>
+                    <th>Comentarios</th>
+                    <th>Acciones</th> <!-- Columna para los botones -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se mostrarán los registros -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="total">
+        <p>Total de Pensiones: <span id="total-pensiones">0</span></p>
+        <p>Total de Estudiantes: <span id="total-estudiantes">0</span></p>
+    </div>
+
+    <div class="actions">
+        <button onclick="volver()">Volver al Registro</button>
+        <button onclick="borrarHistorial()">Borrar Historial</button>
+        <button onclick="generarPDF()">Descargar PDF</button>
+    </div>
+</div>
+
+<script src="historial.js"></script>
+
+<script>
+    // Función para generar el PDF con los datos de la tabla
+    function generarPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Agregar título al PDF
+        doc.setFontSize(18);
+        doc.text('Historial de Pagos de Matrícula', 14, 20);
+
+        // Configurar tabla
+        const tabla = document.getElementById("tabla-historial");
+        const rows = tabla.querySelectorAll("tr");
+        let y = 30; // Posición vertical inicial para la tabla
+
+        // Definir columnas
+        const headers = ["Recibo", "Grado", "Pensión", "Estudiante", "Fecha", "Comentarios"];
+        const cellWidth = 40; // Ancho de las celdas
+
+        // Imprimir encabezados de la tabla
+        doc.setFontSize(12);
+        doc.text(headers[0], 14, y);
+        doc.text(headers[1], 14 + cellWidth, y);
+        doc.text(headers[2], 14 + cellWidth * 2, y);
+        doc.text(headers[3], 14 + cellWidth * 3, y);
+        doc.text(headers[4], 14 + cellWidth * 4, y);
+        doc.text(headers[5], 14 + cellWidth * 5, y);
+        y += 10;
+
+        // Imprimir las filas de la tabla
+        rows.forEach((row, index) => {
+            if (index > 0) { // Saltar el encabezado
+                const cols = row.querySelectorAll("td");
+                doc.text(cols[0].textContent, 14, y);
+                doc.text(cols[1].textContent, 14 + cellWidth, y);
+                doc.text(cols[2].textContent, 14 + cellWidth * 2, y);
+                doc.text(cols[3].textContent, 14 + cellWidth * 3, y);
+                doc.text(cols[4].textContent, 14 + cellWidth * 4, y);
+                doc.text(cols[5].textContent, 14 + cellWidth * 5, y);
+                y += 10;
+            }
+        });
+
+        // Agregar totales al final del PDF
+        y += 10;
+        doc.text(`Total de Pensiones: $${document.getElementById("total-pensiones").textContent}`, 14, y);
+        y += 10;
+        doc.text(`Total de Estudiantes: ${document.getElementById("total-estudiantes").textContent}`, 14, y);
+
+        // Descargar el PDF
+        doc.save("historial_pagos.pdf");
+    }
+</script>
+
+</body>
+</html>

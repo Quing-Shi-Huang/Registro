@@ -1,0 +1,127 @@
+/* Reseteo de márgenes y padding para asegurar una apariencia uniforme en todos los navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Establecemos una tipografía base para todo el sitio */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #16d5f7; /* Color de fondo suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Para que ocupe toda la pantalla */
+    margin: 0;
+}
+
+/* Estilos del contenedor principal */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f6ef1d;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Títulos */
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo de la tabla y su contenedor */
+.tabla {
+    max-height: 400px; /* Tamaño máximo para la tabla */
+    overflow-y: auto; /* Desplazamiento vertical si hay más filas */
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #0c0c0c;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-size: 16px;
+    color: #333;
+}
+
+td {
+    font-size: 14px;
+    color: #555;
+}
+
+td span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Fila alterna en la tabla */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos de los botones */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px; /* Espaciado entre los botones */
+}
+
+button[type="submit"] {
+    background-color: #40b2eb;
+    color: white;
+}
+
+button[type="button"] {
+    background-color: #007bff;
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    transform: scale(0.98); /* Efecto de presionar el botón */
+}
+
+/* Contenedor de la tabla y botones de acción */
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos de la sección de totales */
+.total {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Mensaje en caso de no haber datos */
+.no-data {
+    font-size: 16px;
+    color: #888;
+    font-style: italic;
+}

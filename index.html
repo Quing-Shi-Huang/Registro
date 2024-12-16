@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pagos de Matrícula</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="particles-js">
+        <div class="container">
+            <h1>Registro de Pagos de Matrícula</h1>
+
+            <form id="formulario-pago">
+                <div>
+                    <label for="recibo">Número de Recibo:</label>
+                    <input type="text" id="recibo" required>
+                </div>
+                <div>
+                    <label for="nombre-estudiante">Nombre del Estudiante:</label>
+                    <input type="text" id="nombre-estudiante" required>
+                </div>
+                <div>
+                    <label for="grado">Año o Grado de Estudio:</label>
+                    <input type="text" id="grado" required>
+                </div>
+                <div>
+                    <label for="pensio">Monto de la Pensión:</label>
+                    <input type="number" id="pensio" required>
+                </div>
+                <div>
+                    <label for="fecha-pago">Fecha de Pago:</label>
+                    <input type="date" id="fecha-pago" required>
+                </div>
+                <div>
+                    <label for="comentarios">Comentarios (Motivo de No Pago):</label>
+                    <textarea id="comentarios"></textarea>
+                </div>
+
+                <div class="actions">
+                    <button type="submit">Registrar Pago</button>
+                    <button type="button" onclick="verHistorial()">Ver Historial</button>
+                </div>
+            </form>
+        </div>
+
+        <script src="registro.js"></script>
+    </div>
+</body>
+
+</html>
