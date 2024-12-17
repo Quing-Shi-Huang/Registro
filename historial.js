@@ -18,10 +18,19 @@ window.onload = function() {
         fila.insertCell(2).textContent = `$${pago.pensio.toFixed(2)}`;
         fila.insertCell(3).textContent = pago.nombreEstudiante;
         fila.insertCell(4).textContent = pago.fechaPago;
-        fila.insertCell(5).textContent = pago.comentarios;
+
+        // Mostrar las fechas de retraso (comentarios) como un listado
+        let fechasRetraso = pago.comentarios;
+        fila.insertCell(5).textContent = fechasRetraso;
+
+        // Mostrar los meses de deuda
+        fila.insertCell(6).textContent = pago.mesesDeDeuda;
+
+        // Mostrar el monto de deuda
+        fila.insertCell(7).textContent = `$${pago.montoDeDeuda.toFixed(2)}`;
 
         // Agregar botón de eliminar
-        let accionesCell = fila.insertCell(6);  // Nueva celda para los botones
+        let accionesCell = fila.insertCell(8);  // Nueva celda para los botones
         let botonEliminar = document.createElement("button");
         botonEliminar.textContent = "Eliminar";
         botonEliminar.onclick = function() { eliminarPago(index); };
